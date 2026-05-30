@@ -26,20 +26,20 @@ pipeline {
         stage('Docker') {
             steps {
                 sh '''
-                    cd FlightReservationApplication
-                    docker build -t swativ27/flight-reservation-pls-19-20:latest . 
-                    docker push swativ27/flight-reservation-pls-19-20:latest 
-                    docker rmi swativ27/flight-reservation-pls-19-20:latest
-                    '''
+                cd FlightReservationApplication
+                docker build -t swativ27/flight-reservation-pls-19-20:latest . 
+                docker push swativ27/flight-reservation-pls-19-20:latest 
+                docker rmi swativ27/flight-reservation-pls-19-20:latest
+                '''
             }
         }
        stage('Deploy') {
             steps {
                 sh '''
-                     cd FlightReservationApplication
-                     kubectl apply -f k8s/deployment.yaml
-                     kubectl apply -f k8s/service.yaml
-                  '''
+                cd FlightReservationApplication
+                kubectl apply -f k8s/deployment.yaml
+                kubectl apply -f k8s/service.yaml
+                '''
             }
         }
     }
