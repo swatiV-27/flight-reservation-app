@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('code-pull'){
             steps{    
-                  git branch: 'main', url: 'https://github.com/mayurmwagh/flight-reservation-app.git'    
+                  git branch: 'main', url: 'https://github.com/swatiV-27/flight-reservation-app.git'    
 
             }
         }
